@@ -1,0 +1,80 @@
+//primer hijo - un campo de texto
+          children: [
+            TextField(
+              controller: _costo,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  icon: Icon(Icons.food_bank),
+                  labelText: "Costo Del Servicio",
+                  border: OutlineInputBorder(),
+                ),
+            ),
+
+            //segundo hijo - texto con icono
+            ListTile(
+              title: Text("¿Como estuvo el servicio?"),
+              leading: Icon(Icons.star),
+            ),
+
+            //aqui agregamos el 3er hijo - sera un column
+            Column(
+              children: [
+                RadioListTile(
+                  title: Text("Amazing (20%)"),
+                  value: 20, 
+                  groupValue: _propina, 
+                  onChanged: (value) {
+                    setState(() {
+                      _propina = value;
+                    });
+                  },
+                ),
+
+                RadioListTile(
+                  title: Text("Good (15%)"),
+                  value: 15, 
+                  groupValue: _propina, 
+                  onChanged: (value) {
+                    setState(() {
+                      _propina = value;
+                    });
+                  },
+                  
+                ),
+
+                RadioListTile(
+                  title: Text("Okay (10%)"),
+                  value: 10, 
+                  groupValue: _propina, 
+                  onChanged: (value) {
+                    setState(() {
+                      _propina = value;
+                    });
+                  },
+                  
+                )
+
+              ],
+            ), //column de los radio buttons
+
+            // el siguiente hijo es un raw para un listtile y un switch
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ListTile(
+                  title: Text("Round up tip?"),
+                  leading: Icon(Icons.arrow_outward),
+
+                ),
+
+                Switch(
+                  value: _redondeo, 
+                  onChanged: (value){
+                  setState(() {
+                    _propina = value as int?;
+                  });
+                }
+                
+                )
+              ],
+            )
