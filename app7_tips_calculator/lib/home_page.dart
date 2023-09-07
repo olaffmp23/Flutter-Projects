@@ -13,6 +13,7 @@ class _HomePageState extends State<HomePage> {
   int? _valorSeleccionado = 20;
   bool _redondeo = false;
   double _propinaF = 0;
+  String _ppf = "";
 
   double _calcularPropina(double c, int? p, bool r) {
     double _pf = c * (p ?? 0) / 100;
@@ -118,6 +119,7 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   double costo = double.tryParse(_costoController.text) ?? 0;//aqui se hace una conversion de datos a double
                   _propinaF = _calcularPropina(costo, _valorSeleccionado, _redondeo);
+                  _ppf = _propinaF.toStringAsFixed(2);
                   setState(() {});
                 },
                 child: Text("CALCULATE"),
@@ -128,7 +130,7 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text("Propina Final: $_propinaF", style: TextStyle(fontSize: 15)),
+                Text("Propina Final: \$$_ppf", style: TextStyle(fontSize: 15)),
               ],
             ),
           ], // Hijos del column inicial

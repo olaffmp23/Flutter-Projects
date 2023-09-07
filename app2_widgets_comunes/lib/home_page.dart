@@ -41,15 +41,14 @@ class _HomePageState extends State<HomePage>{
             padding: EdgeInsets.all(8),
             child:  Column(
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                Container(
+                  alignment: Alignment.center,
+                  child: 
                     ListTile(
                       title: Text("Flutter McFlutter", style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),),
                       subtitle: Text("Experimented App Developer"),
                       leading: Icon(Icons.person_2_rounded),
                     ),
-                  ],
                 ),
 
                 Row(
