@@ -14,6 +14,8 @@ List<Color> _coloresB = [
   Colors.black,
   Colors.black,
   Colors.black,
+ Colors.black,
+
 
 ];
 
@@ -35,10 +37,8 @@ void _cambiarColor(int index){
         ),
 
         //Aqui escribimos todo lo que estara dentro del Boddy de la app
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          
-          child: Column(
+        body: 
+           Column(
             children: [
               //aqui agregamos la imagen
               Container(
@@ -53,23 +53,46 @@ void _cambiarColor(int index){
               ListTile(
                 title: const Text("El ITESO, Universidad Jesuita de Guadalajara", style: TextStyle(fontWeight: FontWeight.bold),),
                 subtitle: const Text("San Pedro Tlaquepaque, Jal.", style: TextStyle(fontWeight: FontWeight.w200),),
-                trailing: IconButton(
-                  color: _coloresB[3],
-                  onPressed: (){
-                    _cambiarColor(3);
+                trailing: Wrap(
+                  children: [
+                    IconButton(
+                      color: _coloresB[3],
+                      icon: Icon(Icons.thumb_up),
+                      onPressed: (){
+                      _cambiarColor(3);
                     _likes++;
-                  }, 
-                  icon: Icon(Icons.thumb_up),
+                    }
+
+                    ),
+                    Text("$_likes"),
+                    
+                    IconButton(
+                      color: _coloresB[4],
+                      icon: Icon(Icons.thumb_down),
+                      onPressed: (){
+                      _cambiarColor(4);
+                    _likes--;
+                    }, 
                   ),
+                  
+                  
+
+                  ],
+                  
+                  ),
+
+                  
+
               ),
               //SizedBox(width: 10),
-              Row(
+              /*Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   SizedBox(width: 60, height: 10,),
                   Text("$_likes"),
                 ],
-              ),
+              ), */
+
               const SizedBox(height: 20,),
               
               //aqui vamos a crear la fila de iconos
@@ -141,13 +164,12 @@ void _cambiarColor(int index){
               //aqui agregamos el texto de la parte inferior
               SizedBox(height: 20,),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Text('''El ITESO, Universidad Jesuita de Guadalajara (Instituto Tecnológico y de Estudios Superiores de Occidente) es una universidad privada ubicada en la Zona Metropolitana de Guadalajara, Jalisco, México, fundada en el año 1957. La institución forma parte del Sistema Universitario Jesuita (SUJ) que integra a ocho universidades en México. La universidad es nombrada como la Universidad Jesuita de Guadalajara''', textAlign: TextAlign.justify,),
               ),
               
             ],
           ),
-        ),
-      );
+        );
   }
 }

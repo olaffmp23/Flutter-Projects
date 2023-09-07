@@ -9,8 +9,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>{  
 
-//varibles 
-  //bool? bc1=true, bc2, bc3, bc4;
+
   List<Color> _colorButton = [
     Colors.black,
     Colors.black,
@@ -20,8 +19,7 @@ class _HomePageState extends State<HomePage>{
 
   void _changeColor(int index){
    setState(() {
-     _colorButton[index] =
-           _colorButton[index] == Colors.blue ? Colors.black : Colors.blue;
+     _colorButton[index] = _colorButton[index] == Colors.indigo ? Colors.black : Colors.indigo;
    }); 
   }
   
